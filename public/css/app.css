@@ -2,3 +2,47 @@ body {
   background: #222;
 }
 
+.navbar-nav {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+.form-inline {
+  max-width: 100%;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+.form-inline .form-control {
+  width: 65%;
+  margin-right: 20px;
+}
+
+.nav-height {
+  max-height: 56px !important;
+}
+
+.round-tabs .nav-item {
+  width: 6rem;
+  text-align: center;
+}
+
+.round-tabs .active a {
+  background-color: #535050;
+  border: 0.3px solid black;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+  color: black;
+}
+
+.round-tabs a {
+  background-color: #8d8080;
+  border: 0.3px solid black !important;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+  color: black !important;
+}
+
