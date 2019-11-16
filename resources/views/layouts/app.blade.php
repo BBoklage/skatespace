@@ -23,7 +23,7 @@
         <!-- Main Content  -->
         <div id="app" class="container-fluid vr">
 
-                    @yield('content')
+            @yield('content')
 
         </div>
 

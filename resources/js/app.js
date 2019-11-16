@@ -6,6 +6,7 @@ window.Vue = require('vue');
 
 // vue components 
 Vue.component('vidshare', require('./components/VideoShare.vue').default);
+Vue.component('generalchat', require('./components/GeneralChat.vue').default);
 
 
 // new vue instance 

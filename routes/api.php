@@ -16,3 +16,18 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//List Posts
+Route::get('posts', 'GeneralChatController@index');
+
+//List Single Post
+Route::get('post/{id}', 'GeneralChatController@show');
+
+//create New Post
+Route::post('post', 'GeneralChatController@store');
+
+//Update Post
+Route::put('post', 'GeneralChatController@store');
+
+//Delete Post
+Route::delete('post/{id}', 'GeneralChatController@destroy');

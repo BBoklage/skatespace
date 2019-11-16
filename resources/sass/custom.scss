@@ -2,11 +2,14 @@
 
 body {
     background: #222;
+    color: white;
 }
 
 
 // NavBar styles 
-
+.video-thumb {
+    color: white;
+}
 .navbar-nav {
     flex-direction: row;
     justify-content: center;
