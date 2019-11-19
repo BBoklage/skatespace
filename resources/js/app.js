@@ -1,5 +1,6 @@
 
 require('./bootstrap');
+require('../../node_modules/bootstrap')
 
 // console.log('working');
 window.Vue = require('vue');
