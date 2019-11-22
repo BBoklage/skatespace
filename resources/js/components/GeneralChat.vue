@@ -1,16 +1,16 @@
 <template>
     <div class="container-fluid">
-        <div class="card mb-2">
-            <div class="card-header text-center">Tweet Your Thoughts
+        <div class="card mb-2 bg-dark text-white">
+            <div class="card-header text-center">Share Your Thoughts
             </div>
-            <form @submit.prevent="addPost">
+            <form @submit.prevent="addPost" class="">
                 <div class="form-group">
-                    <textarea type="text" class="form-control" placeholder="Tweet Here" v-model="post.post"></textarea>
-                    <button type="submit" class="btn btn-light btn-block">Tweet</button>
+                    <textarea type="text" class="form-control bg-secondary text-white" placeholder="Tweet Here" v-model="post.post"></textarea>
+                    <button type="submit" class="btn btn-info btn-block">Post</button>
                 </div>
             </form>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center post">
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
                     <li v-bind:class="[{disabled: !pagination.prev_page_url}]" class="page-item"><a class="page-link" href="#" @click="fetchPosts(pagination.prev_page_url)">Previous</a></li>
@@ -21,7 +21,7 @@
                 </ul>
             </nav>
         
-            <div v-for="post in posts" v-bind:key="post.id" class="card mb-2 col-12">
+            <div v-for="post in posts" v-bind:key="post.id" class="card mb-2 col-12 bg-secondary">
 
                 <div class="card-body">
                     <h4>{{post.post}}</h4>

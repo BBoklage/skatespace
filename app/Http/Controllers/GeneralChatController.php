@@ -32,7 +32,7 @@ class GeneralChatController extends Controller
      */
     public function store(Request $request)
     {
-        $user = Auth:: user();
+        $user = Auth::user();
         $post = $request->isMethod('put') ? GeneralChat::find($request->post_id) : new GeneralChat;
         if (isset($post->id)) {
             $post->id = $request->input('post_id');

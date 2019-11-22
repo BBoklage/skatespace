@@ -2,12 +2,26 @@
 
 body {
     background: #222;
+    z-index: 0;
 }
 
 
 // NavBar styles 
 .video-thumb {
+    display: flex;
     color: white;
+    justify-content: center;
+    img {
+
+    }
+
+}
+.vs {
+    font-size: 1.5rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .navbar-nav {
     flex-direction: row;
@@ -47,4 +61,52 @@ body {
     }
     
 }
+
+.bg-pic {
+    display: flex;
+    background-image: url("/img/skatepic.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    opacity: .3;
+}
+.full-height {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+
+
+}
+
+.center-content {
+    margin-left: 50%;
+    margin-right: 50%;
+    padding-top: 40vh;
+    li{
+        list-style: none;
+    }
+}
+
+.links {
+    font-size: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+    z-index: 2;
+    color: white;
+   
+}
+
+.img-size {
+    max-width: 400px;
+}
+
+.post {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
      

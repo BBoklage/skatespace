@@ -1,10 +1,11 @@
 <template>
-    <div class="video-thumb text-center">
-        <h1>Upload you video here</h1>
-        <form enctype= "multipart/form-data">
-            <input type="file" accept="">
-            <video src="" class=""></video>
-        </form>
+    
+    <div class="text-center">
+        <a href="http:/battle" class="video-thumb">
+            <img src="/img/profile1.jpg" alt="">
+            <p class="vs">vs</p>
+            <img src="/img/profile2.jpg" alt="">
+        </a>
         
         
     </div>
@@ -15,4 +16,8 @@
 export default {
     
 }
+
+methods: {
+}
+
 </script>

@@ -15,6 +15,8 @@ class CreateVideoSharesTable extends Migration
     {
         Schema::create('video_shares', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('user_id');
+            $table->string('image');
             $table->timestamps();
         });
     }

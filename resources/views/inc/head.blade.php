@@ -5,6 +5,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    @if($user = Auth:: user())
+        <meta name="user-id" content="{{$user->id}}">
+    @endif
+
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->

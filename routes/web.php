@@ -19,3 +19,9 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::post('/store', 'VideoShare@store')->name('store');
+
+Route::get('/battle', function () {
+        return view('pages/battle');
+    });
+

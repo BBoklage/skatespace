@@ -2014,7 +2014,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
+
+methods: {}
 
 /***/ }),
 
@@ -38880,9 +38883,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid" }, [
-    _c("div", { staticClass: "card mb-2" }, [
+    _c("div", { staticClass: "card mb-2 bg-dark text-white" }, [
       _c("div", { staticClass: "card-header text-center" }, [
-        _vm._v("Tweet Your Thoughts\n        ")
+        _vm._v("Share Your Thoughts\n        ")
       ]),
       _vm._v(" "),
       _c(
@@ -38906,7 +38909,7 @@ var render = function() {
                   expression: "post.post"
                 }
               ],
-              staticClass: "form-control",
+              staticClass: "form-control bg-secondary text-white",
               attrs: { type: "text", placeholder: "Tweet Here" },
               domProps: { value: _vm.post.post },
               on: {
@@ -38922,10 +38925,10 @@ var render = function() {
             _c(
               "button",
               {
-                staticClass: "btn btn-light btn-block",
+                staticClass: "btn btn-info btn-block",
                 attrs: { type: "submit" }
               },
-              [_vm._v("Tweet")]
+              [_vm._v("Post")]
             )
           ])
         ]
@@ -38934,7 +38937,7 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "row justify-content-center" },
+      { staticClass: "row justify-content-center post" },
       [
         _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
           _c("ul", { staticClass: "pagination" }, [
@@ -39002,101 +39005,105 @@ var render = function() {
         ]),
         _vm._v(" "),
         _vm._l(_vm.posts, function(post) {
-          return _c("div", { key: post.id, staticClass: "card mb-2 col-12" }, [
-            _c("div", { staticClass: "card-body" }, [
-              _c("h4", [_vm._v(_vm._s(post.post))]),
-              _vm._v(" "),
-              !post.edit
-                ? _c("h6", { staticClass: "font-color-blue" }, [
-                    _vm._v(_vm._s(post.author))
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              post.edit
-                ? _c("textarea", {
-                    directives: [
+          return _c(
+            "div",
+            { key: post.id, staticClass: "card mb-2 col-12 bg-secondary" },
+            [
+              _c("div", { staticClass: "card-body" }, [
+                _c("h4", [_vm._v(_vm._s(post.post))]),
+                _vm._v(" "),
+                !post.edit
+                  ? _c("h6", { staticClass: "font-color-blue" }, [
+                      _vm._v(_vm._s(post.author))
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                post.edit
+                  ? _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: post.post,
+                          expression: "post.post"
+                        }
+                      ],
+                      staticClass: "col-12",
+                      attrs: { cols: "30", rows: "3" },
+                      domProps: { value: post.post },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(post, "post", $event.target.value)
+                        }
+                      }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                !post.edit && _vm.isCurrentUser(post.author_id)
+                  ? _c(
+                      "button",
                       {
-                        name: "model",
-                        rawName: "v-model",
-                        value: post.post,
-                        expression: "post.post"
-                      }
-                    ],
-                    staticClass: "col-12",
-                    attrs: { cols: "30", rows: "3" },
-                    domProps: { value: post.post },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                        staticClass: "btn btn-danger btn-sm col-2",
+                        on: {
+                          click: function($event) {
+                            return _vm.deletePost(post.id)
+                          }
                         }
-                        _vm.$set(post, "post", $event.target.value)
-                      }
-                    }
-                  })
-                : _vm._e(),
-              _vm._v(" "),
-              !post.edit && _vm.isCurrentUser(post.author_id)
-                ? _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-danger btn-sm col-2",
-                      on: {
-                        click: function($event) {
-                          return _vm.deletePost(post.id)
+                      },
+                      [_vm._v("Delete")]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                !post.edit && _vm.isCurrentUser(post.author_id)
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-warning btn-sm col-2",
+                        on: {
+                          click: function($event) {
+                            post.edit = !post.edit
+                          }
                         }
-                      }
-                    },
-                    [_vm._v("Delete")]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              !post.edit && _vm.isCurrentUser(post.author_id)
-                ? _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-warning btn-sm col-2",
-                      on: {
-                        click: function($event) {
-                          post.edit = !post.edit
+                      },
+                      [_vm._v("Edit")]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                post.edit && _vm.isCurrentUser(post.author_id)
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary btn-sm col-2",
+                        on: {
+                          click: function($event) {
+                            post.edit = !post.edit
+                          }
                         }
-                      }
-                    },
-                    [_vm._v("Edit")]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              post.edit && _vm.isCurrentUser(post.author_id)
-                ? _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary btn-sm col-2",
-                      on: {
-                        click: function($event) {
-                          post.edit = !post.edit
+                      },
+                      [_vm._v("Update")]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                post.edit && _vm.isCurrentUser(post.author_id)
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-warning btn-sm col-2",
+                        on: {
+                          click: function($event) {
+                            post.edit = !post.edit
+                          }
                         }
-                      }
-                    },
-                    [_vm._v("Update")]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              post.edit && _vm.isCurrentUser(post.author_id)
-                ? _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-warning btn-sm col-2",
-                      on: {
-                        click: function($event) {
-                          post.edit = !post.edit
-                        }
-                      }
-                    },
-                    [_vm._v("Cancel")]
-                  )
-                : _vm._e()
-            ])
-          ])
+                      },
+                      [_vm._v("Cancel")]
+                    )
+                  : _vm._e()
+              ])
+            ]
+          )
         })
       ],
       2
@@ -39132,13 +39139,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "video-thumb text-center" }, [
-      _c("h1", [_vm._v("Upload you video here")]),
-      _vm._v(" "),
-      _c("form", { attrs: { enctype: "multipart/form-data" } }, [
-        _c("input", { attrs: { type: "file", accept: "" } }),
+    return _c("div", { staticClass: "text-center" }, [
+      _c("a", { staticClass: "video-thumb", attrs: { href: "http:/battle" } }, [
+        _c("img", { attrs: { src: "/img/profile1.jpg", alt: "" } }),
         _vm._v(" "),
-        _c("video", { attrs: { src: "" } })
+        _c("p", { staticClass: "vs" }, [_vm._v("vs")]),
+        _vm._v(" "),
+        _c("img", { attrs: { src: "/img/profile2.jpg", alt: "" } })
       ])
     ])
   }
